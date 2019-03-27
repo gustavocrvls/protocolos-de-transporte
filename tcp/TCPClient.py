@@ -1,16 +1,21 @@
+__author__ = "Gustavo Carvalho"
+__date__ = "25/03/2018"
+
 import socket
 
-HOST = '127.0.0.1'
-PORT = 5500
-MESSAGE = "It's Alive!"
+TCP_IP = '127.0.0.1' 	# IP do Servidor
+PORT = 5500 			# Porta do Servidor
+# MESSAGE = "It's Alive!"
 
-tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-tcp.connect((HOST, PORT))
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Cria um novo socket
+tcp.connect((TCP_IP, PORT)) # Cria uma nova conexão
 
-tcp.send(bytes(MESSAGE, 'UTF-8'))
+message = input('Enter Something: ') # Mensagem que será enviada para o servidor
 
-data = tcp.recv(1024)
+tcp.send(bytes(message, 'UTF-8')) # Envia o dado
 
-print("received data: ", data)
+data = tcp.recv(1024) # Captura a resposta
 
-tcp.close()
+print("received data: ", data.decode('UTF-8', 'strict')) # Escreve a mensagem recebida
+
+tcp.close() # fecha a conexão
