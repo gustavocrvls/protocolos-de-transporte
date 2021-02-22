@@ -24,7 +24,7 @@ while True:
     if data:
         try:
             print(data.decode('UTF-8', 'strict'))
-            with open(data.decode('UTF-8', 'strict'), "rb") as f: # Tenta ler o arquivo no disco
+            with open('./files/' + data.decode('UTF-8', 'strict'), "rb") as f: # Tenta ler o arquivo no disco
                 bytes_read = f.read(BUFFER)
                 print(bytes_read)
                 conn.sendall(bytes_read) # Envia o conteúdo do arquivo

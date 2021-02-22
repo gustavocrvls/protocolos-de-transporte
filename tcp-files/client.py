@@ -15,10 +15,10 @@ tcp.send(bytes(message, 'UTF-8')) # Envia o dado
 
 data = tcp.recv(1024) # Captura a resposta
 
-print("received data: ", data.decode('UTF-8', 'strict')) # Escreve a mensagem recebida no terminal
+# print("received data: ", data.decode('UTF-8', 'strict')) # Escreve a mensagem recebida no terminal
 
-if data.decode('UTF-8', 'strict') != 'file not found': # Caso um arquivo seja recebido
-    f = open("new__" + message, 'wb') # Cria um novo arquivo com o nome enviado
-    f.write(data) # Escreve o conteúdo recebido nesse novo arquivo
+f = open("new__" + message, 'wb') # Cria um novo arquivo com o nome enviado
+f.write(data) # Escreve o conteúdo recebido nesse novo arquivo
+# if data.decode('UTF-8', 'strict') != 'file not found': # Caso um arquivo seja recebido
 
 tcp.close() # Fecha a conexão
