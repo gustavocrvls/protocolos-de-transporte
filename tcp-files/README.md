@@ -31,3 +31,6 @@ ou dependendo da sua máquina
 - Arquivos de teste existentes nesse exemplo:
   - test.txt
   - test2.json
+  
+### nota
+Toda vez que o cliente receber uma mensagem, fechará a conexão, eu deixei esse como o comportamento normal
